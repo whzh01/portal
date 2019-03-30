@@ -1,0 +1,287 @@
+<html><head>
+	
+	
+    <script type="text/javascript">
+	//解决跳转地址带有#时不能跳转到指定的链接上（开始 by tjl）
+    var urlarray = window.location.href.split("#");
+   	if(urlarray.length>1){
+   	   var encodeurl = "";
+	   for(var i=1;i<urlarray.length;i++){
+	       encodeurl = encodeurl + encodeURIComponent("#"+urlarray[i]);
+	   } 
+	   encodeservice =  encodeURIComponent("https://portal.dlut.edu.cn/tp/") + encodeurl;
+	   window.location.href = "/cas/login?service="+encodeservice;
+   	}
+    //解决跳转地址带有#时不能跳转到指定的链接上（结束 by tjl）
+    var dm = document.documentMode;
+    //判断是否为低版本ie（ie5,6,7,8）
+    if(dm){
+    	if(dm == "5" || dm == "6" || dm == "7" || dm == "8"){
+    		//cookie存放低版本标识
+    		document.cookie = "lowIE=y";
+    		//判断cookie中是否存放低版本ie标识，没有则重载页面
+    		var lowIE = -1;
+    		if(lowIE == -1){
+    			window.location.href = "/cas/login?service="+encodeURIComponent("https://portal.dlut.edu.cn/tp/");
+    		}
+    	}else{
+    		document.cookie = "lowIE=n";
+    		var highIE = -1;
+    		if(highIE == -1){
+    			window.location.href = "/cas/login?service="+encodeURIComponent("https://portal.dlut.edu.cn/tp/");
+    		}
+    	}
+    }
+    </script>
+	
+	     
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+	//存在父页面，并且父页面不是当前系统（casLogoutView.jsp中如果不做判断会一直刷新）
+	if(window.top!=window.self && 
+			window.top.location.href.indexOf("sso.dlut.edu.cn")==-1 &&
+			window.top.location.href.indexOf("/cas")==-1){
+				window.top.location.reload();
+	}
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="decription" content="">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta name="renderer" content="webkit">
+	<link rel="stylesheet" type="text/css" href="./icon.css">
+    <link rel="stylesheet" type="text/css" href="./ie7.css">
+    <link rel="stylesheet" type="text/css" href="./captcha.css">
+    <link rel="stylesheet" type="text/css" href="./minimal.css">
+
+    <link rel="stylesheet" type="text/css" href="./styled.css">
+    <!-- 新的轮播部分 css start-->
+    <link rel="stylesheet" type="text/css" href="./swiper.min.css">
+	<!-- 新的轮播部分 css end-->
+	<script type="text/javascript" src="./ie7.js"></script>
+	
+	<title>大连理工大学统一身份认证</title>
+	
+</head>
+<body class="login_bg_f" id="container_bg" style="height: 542px; min-width: 100%; width: 1903px;">
+<form id="loginForm" action="/cas/login;jsessionid=OlyQxJDLSc-tktRuuaBkO5ii1-WYkIpmw6bLDwK2i60awtKCmTP1!1675451853?service=https%3A%2F%2Fportal.dlut.edu.cn%2Ftp%2F" method="post">
+    <div class="header_01">
+			<div class="header_01_space">
+				<span class="letter"></span>
+				<a class="header_01_logo" href="javascript:;">
+					<img src="./head_logo.png">
+				</a>
+				<span class="loginpage_head_point" style="margin-left:-5px;"></span>
+				<font class="loginpage_head_txt">统一身份认证</font>
+				<span class="loginpage-letter">DALIAN   UNIVERSITY OF TECHNOLOGY UNIFORM  IDENTITY AUTHENTICATION</span>
+				<p class="header_01_help">
+					<a target="_blank" href="https://portal.dlut.edu.cn/tp/resource/help/QA_cjwt_wjmm.html" style="color:rgba(255,255,255,0.8);">常见问题</a>
+				</p>
+			</div>
+		</div>
+		<div class="mid_container">
+			<div class="container_space">
+				<div class="login_banner" id="myFocus" style="margin:20px 0;">
+					
+					<!-- 新的轮播部分 start-->
+					<div class="swiper-container swiper-container-horizontal">
+				        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1080px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="1" style="width: 1080px;"><img src="./1504141155997.png"></div>
+				           
+				            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1080px;"><img src="./1499053526227.png"></div><div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 1080px;"><img src="./1504141155997.png"></div>
+				        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 1080px;"><img src="./1499053526227.png"></div></div>
+				        <!-- Add Pagination -->
+				        <div id="swiper-pagination1" class="swiper-pagination swiper-pagination-bullets swiper-pagination-clickable"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span></div>
+				    </div>
+					<!-- 新的轮播部分 end -->
+				</div>
+				<div class="content_login_box">
+					<div class="login_box_tab">
+						<a class="password active" id="password_login">账号登录</a>
+						<a class="er-code" id="qrcode_login"><span>二维码登录</span></a>
+					</div>
+					<div class="row" id="login_content">
+						<div class="login_box_up">
+							<div class="login_box_title">
+								<span class="name">统一身份认证</span>
+								<span id="help-link" class="right header_mini_help"><a href="https://portal.dlut.edu.cn/tp/resource/help/QA_cjwt_wjmm.html">常见问题</a></span>
+								<span class="login_box_title_notice script_red" id="errormsg"></span>
+							</div>
+	                        <input class="login_box_input person" id="un" tabindex="1" autocomplete="off" placeholder="职工号/学号">
+							<input class="login_box_input lock" id="pd" tabindex="2" type="password" autocomplete="off" placeholder="输入密码">
+							<div class="down_link_choice">
+							    <div class="login_box_checkbox"> 
+								    <input type="checkbox" name="none" id="rememberName">
+								</div>   
+								<span class="login_box_checkbox_label">记住用户名</span>
+								
+								<a href="pwd" class="login_box_psd">找回密码</a>
+							</div>
+    				        
+							<span class="landing_btn_bg" id="index_login_btn">
+								<input type="button" class="login_box_landing_btn">
+								登&nbsp;&nbsp;录
+							</span>
+						</div>
+						
+						<div class="login_box_down">
+							<p class="login_box_notice">
+								<font class="graybold row title">登录提示：</font>
+								<span class="row ">1.请使用职工号/学号和原有统一身份认证密码登录。 </span>
+								<span class="row margin_top_4">2.若从未使用过原有各系统，请使用初始密码。初始密码为身份证后六位（含X请大写输入）。无身份证信息的请使用123456。</span>
+								<!--<p class="new_student" style="position:relative;">360浏览器请使用极速模式
+									<a class="open_360" id="open_360">(如何使用?)
+										<span class="b_360" id="open_360_img"><img src="./open360fast.png" width="826" height="170"></span>
+									</a>
+								</p> -->
+								</p><p class="browser">
+									<span class="left">建议浏览器：</span>
+									<a style="margin-left:0;" class="ie_pic" target="_blank" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">IE10+</a>
+									<a class="firefox_pic" target="_blank" href="http://www.firefox.com.cn/download/">火狐</a>
+									<a class="google_pic" target="_blank" href="http://rj.baidu.com/soft/detail/14744.html?ald">谷歌</a>
+								</p>
+							<p></p>
+						</div>
+	</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer-inside-bar">
+				<div class="footer_bar">
+					<span class="row margin_top_17">版权所有：大连理工大学</span>
+					<span class="row margin_top_7">地址：中国·辽宁省大连市甘井子区凌工路2号 邮编：116024 服务热线：0411-84707007</span>
+				</div>
+				<div class="right">
+					<span class="row margin_top_17">总访问量：171045 &nbsp;&nbsp;&nbsp;  当日访问量：17808 &nbsp;&nbsp;&nbsp;  日均访问量：18869</span>	
+				</div>
+				<p class="footer-mobile">版权所有：大连理工大学</p>
+			</div>
+		</div>
+		 <input type="hidden" id="rsa" name="rsa">
+	      <input type="hidden" id="ul" name="ul">
+	      <input type="hidden" id="pl" name="pl">
+	      <input type="hidden" id="lt" name="lt" value="LT-92197-zUIcF2BG3NtCuiyXdCfAyzUpBodBzT-cas">
+	      <input type="hidden" name="execution" value="e1s1">
+	      <input type="hidden" name="_eventId" value="submit">
+	      
+	      <p style="display:none;">
+	      
+	      </p>
+	      
+		</form>
+		
+    <script type="text/javascript" src="./des.js"></script>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-qrcode/1.0.0/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="./jquery-1.10.3-ui.min.js"></script>
+    <script type="text/javascript" src="./jquery.captcha.js"></script>
+    <script type="text/javascript" src="./login6.js"></script>
+	<script type="text/javascript" src="./icheck.min.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#input-1').iCheck({
+			checkboxClass:'icheckbox_minimal',
+			radioClass:'iradio_square-blue',
+			increaseArea:'20%'
+		});
+	});
+	</script>
+ 
+	<!-- 新的轮播部分 js start-->
+	<script type="text/javascript" src="./swiper.jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        slidesPerView: 1,
+	        paginationClickable :true,
+	        spaceBetween: 0,
+	        pagination : '#swiper-pagination1',
+	        paginationType: 'bullets',
+	        autoplay : 15000,
+	        loop : true
+	    });
+	});
+	</script>
+	<!-- 新的轮播部分 js end-->
+	<script id="password_template" type="text/html">
+						<div class="login_box_up">
+							<div class="login_box_title">
+								<span class="name">统一身份认证</span>
+								<span id="help-link" class="right header_mini_help"><a href="https://portal.dlut.edu.cn/tp/resource/help/QA_cjwt_wjmm.html">常见问题</a></span>
+								<span class="login_box_title_notice script_red" id="errormsg"></span>
+							</div>
+	                        <input class="login_box_input person" id="un" tabindex="1" 
+         						autocomplete="off" placeholder="职工号/学号"/>
+							<input class="login_box_input lock"   id="pd" tabindex="2" type="password"
+                        	autocomplete="off" placeholder='输入密码'/>
+							<div class="down_link_choice">
+							    <div class="login_box_checkbox"> 
+								    <input type="checkbox" name="none" id="rememberName"/>
+								</div>   
+								<span class="login_box_checkbox_label">记住用户名</span>
+								
+								<a href="pwd" class="login_box_psd">找回密码</a>
+							</div>
+    				        
+							<span class="landing_btn_bg" id="index_login_btn" >
+								<input type="button" class="login_box_landing_btn" />
+								登&nbsp;&nbsp;录
+							</span>
+						</div>
+						
+						<div class="login_box_down">
+							<p class="login_box_notice">
+								<font class="graybold row title">登录提示：</font>
+								<span class="row ">1.请使用职工号/学号和原有统一身份认证密码登录。 </span>
+								<span class="row margin_top_4">2.若从未使用过原有各系统，请使用初始密码。初始密码为身份证后六位（含X请大写输入）。无身份证信息的请使用123456。</span>
+								<!--<p class="new_student" style="position:relative;">360浏览器请使用极速模式
+									<a class="open_360" id="open_360">(如何使用?)
+										<span class="b_360" id="open_360_img"><img src="./open360fast.png" width="826" height="170"></span>
+									</a>
+								</p> -->
+								<p class="browser">
+									<span class="left">建议浏览器：</span>
+									<a style="margin-left:0;" class="ie_pic" target="_blank" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">IE10+</a>
+									<a class="firefox_pic" target="_blank" href="http://www.firefox.com.cn/download/">火狐</a>
+									<a class="google_pic" target="_blank" href="http://rj.baidu.com/soft/detail/14744.html?ald">谷歌</a>
+								</p>
+							</p>
+						</div>
+	</script>
+	<script id="qrcode_template" type="text/html">
+						<div class="login_tab_box" style="padding-bottom:52px;">
+							<div class="er_code_title">手机扫码  安全防盗</div>
+							<div class="er_code_box" id="qrcode">
+								
+							</div>
+							<div class="er_code_text">扫二维码登录校园门户</div>
+							<a href="https://portal.dlut.edu.cn/tp/resource/help/smdl.html" class="help-02">请使用i大工app、微信企业号、QQ校园号扫码登录</a>
+							
+						</div>
+	</script>
+
+
+	
+	
+	
+	
+
+</body></html>
